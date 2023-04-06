@@ -69,7 +69,7 @@
         "D: HTML describes the structure of a webpage",
         "C"
         );
-    console.log(Q1.CheckAnswer(Q1,Q1.C));
+    console.log(Q1.CheckAnswer(Q1,Q1.B));
 
         let Q2 = new Questions(
             "Q2: What does HTML stand for?",
@@ -118,7 +118,7 @@
                 trO1.classList.add("answer");
                 let th_O1_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="true.png"
+                iamge.src="./assets/true.png"
                 th_O1_Img.appendChild(iamge)
                 trO1.appendChild(th_O1_Img)
                 }
@@ -126,7 +126,7 @@
                     trO1.classList.add("Wanswer");
                     let th_O1_Img=document.createElement("th");
                     let iamge=document.createElement("img");
-                    iamge.src="false.png"
+                    iamge.src="./assets/false.png"
                     th_O1_Img.appendChild(iamge)
                     trO1.appendChild(th_O1_Img)
                 }
@@ -146,7 +146,7 @@
                 trO2.classList.add("answer");
                 let th_O2_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="true.png"
+                iamge.src="./assets/true.png"
                 th_O2_Img.appendChild(iamge)
                 trO2.appendChild(th_O2_Img)
                 }
@@ -154,7 +154,7 @@
                     trO2.classList.add("Wanswer");
                     let th_O2_Img=document.createElement("th");
                     let iamge=document.createElement("img");
-                    iamge.src="false.png"
+                    iamge.src="./assets/false.png"
                     th_O2_Img.appendChild(iamge)
                     trO2.appendChild(th_O2_Img)
                 }
@@ -173,7 +173,7 @@
                 trO3.classList.add("answer");
                 let th_O3_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="true.png"
+                iamge.src="./assets/true.png"
                 th_O3_Img.appendChild(iamge)
                 trO3.appendChild(th_O3_Img)
                 }
@@ -181,7 +181,7 @@
                     trO3.classList.add("Wanswer");
                     let th_O3_Img=document.createElement("th");
                     let iamge=document.createElement("img");
-                    iamge.src="false.png"
+                    iamge.src="./assets/false.png"
                     th_O3_Img.appendChild(iamge)
                     trO3.appendChild(th_O3_Img)
                 }
@@ -200,7 +200,7 @@
                 trO4.classList.add("answer");
                 let th_O4_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="true.png"
+                iamge.src="./assets/true.png"
                 th_O4_Img.appendChild(iamge)
                 trO4.appendChild(th_O4_Img)
                 }
@@ -208,7 +208,7 @@
                     trO4.classList.add("Wanswer");
                     let th_O4_Img=document.createElement("th");
                     let iamge=document.createElement("img");
-                    iamge.src="false.png"
+                    iamge.src="./assets/false.png"
                     th_O4_Img.appendChild(iamge)
                     trO4.appendChild(th_O4_Img)
                 }
