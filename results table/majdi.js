@@ -2,7 +2,20 @@ let arrData =[] // all the questions will be pushed here
 let numberOfQuestions=0; // number of questions
 let numberOfPassedQuestions=0; // number of passed questions
 let index0=1;
-  sessionStorage.clear()
+let page0="quiz";
+sessionStorage.clear()
+
+
+let failedR=document.getElementById("failed")
+failedR.style.display="none";
+
+
+
+
+if(sessionStorage.arrData!= null && sessionStorage.page0 !== null){
+    arrData=JSON.parse(sessionStorage.arrData)  
+    page0=JSON.parse(sessionStorage.page0)  
+}
 
 class Questions {  // class to clone the questions
 constructor(Question,option1,option2,option3,option4,answer) { // constructor with question options and result
@@ -96,8 +109,26 @@ let Q1 = new Questions(
             );
             arrData.push(Q3)
 
-
-
+            let Q4 = new Questions(
+                "Q3: What does HTML stand for?",
+                "A: JS describes the structure of a webpage",
+                "B: JS describes the structure of a webpage",
+                "C: JS describes the structure of a webpage",
+                "D: JS describes the structure of a webpage",
+                "B"
+                );
+                arrData.push(Q4)
+    
+                let Q5 = new Questions(
+                    "Q3: What does HTML stand for?",
+                    "A: JS describes the structure of a webpage",
+                    "B: JS describes the structure of a webpage",
+                    "C: JS describes the structure of a webpage",
+                    "D: JS describes the structure of a webpage",
+                    "B"
+                    );
+                    arrData.push(Q5)
+        
 // all the questions will be rendered here 
 
 let resultstext=document.getElementById("resultstext");
@@ -107,13 +138,78 @@ showResultsButton.style.display="none"
 showResultsButton.addEventListener("click",function(){   
     let body=document.getElementById("tbody");
     removeChilds(body);
-     render0()
+   
+    
      CheckAnswerButton();
      showResultsButton.style.display="none"
 
      resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
+     disablebuttons()
+     page0="results";
+     sessionStorage.setItem("page0", JSON.stringify(page0));
+
+    //  let tablediv =document.getElementById("table_div");
+    //   tablediv.style.display="none"
+    let h002=document.getElementById('Qstatus');
+    let ptitle=document.getElementById('ptitle');
+    if(numberOfPassedQuestions>(arrData.length/2)){
+
+       
+            var head  = document.getElementsByTagName('head')[0];
+            var link  = document.createElement('link');
+            link.rel  = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'pass.css';
+            link.media = 'all';
+            head.appendChild(link);
+            h002.textContent="Congrats";
+            failedR.style.display="block";
+
+    }else{
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'failed.css';
+        link.media = 'all';
+        head.appendChild(link);
+        let h002=document.getElementById('Qstatus');
+        h002.textContent="Sorry";
+        failedR.style.display="block";
+
+    }
+
+    ptitle.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
+
+
+   let ShowAnswersTable=document.getElementById('ShowAnswersTable');
+   ShowAnswersTable.addEventListener("click",function(){
+    failedR.style.display="none";
+    
+     // remove all child nodes
+   
+    for(let i=0 ; i<2;i++){
+        head.removeChild(head.lastChild);
+    }
+      
+        render0()
+       
+
+   })
+
+
 
 })
+
+function disablebuttons(){
+for (let i=0; i<questionButtons.length; i++){
+    questionButtons[i].disabled = true;
+
+}
+}
+
+
+
 
 let questionButtons =document.querySelectorAll(".questionsButtons button")
 render(0)
@@ -133,34 +229,24 @@ ShowNextquestion.addEventListener("click", function(){
     
 });
 
-function QbuttonF(i){
+    function QbuttonF(i){
     if(arrData[i-1].userAnswer==null){
-        alert("please choose an answer")
-        
-          }else {
-            index0+=1;
-        
-            if(i+1==questionButtons.length ){
-                showResultsButton.style.display="inline-block";
-                ShowNextquestion.style.display="none" ;
-             }else{
-                showResultsButton.style.display="none" ;
-                
-             }
-            
-             
-                    let body0=document.getElementById("tbody");
-                    removeChilds(body0);
-                    render(i)
-                    // questionButtons[i].disabled = true;
-                    questionButtons[i].style.background="green";
-                  
-                    questionButtons[i].removeEventListener("click",function QbuttonFu(){
-                        QbuttonF(i) 
-                    })
-        
-          }
-}
+     alert("please choose an answer")  
+     }else {
+     index0+=1;
+        if(i+1==questionButtons.length ){
+         showResultsButton.style.display="inline-block";
+         ShowNextquestion.style.display="none" ;
+      }else{
+      showResultsButton.style.display="none" ;   
+      }          
+        let body0=document.getElementById("tbody");
+       removeChilds(body0);
+       render(i)
+       questionButtons[i].disabled = true;
+       questionButtons[i].style.background="green";    
+            }
+            }
 
 
 
@@ -240,8 +326,6 @@ function render(i){
         thO4.textContent=arrData[i].D;
         trO4.appendChild(thO4);
 
-    
-
    
 }
 
@@ -303,9 +387,6 @@ function render0(){
             }
 
 
-
-
-
         let trO2=document.createElement("tr");
         trO2.classList.add("option")
         body.appendChild(trO2)
@@ -330,9 +411,6 @@ function render0(){
                 trO2.appendChild(th_O2_Img)
             }
 
-
-
-
         let trO3=document.createElement("tr");
         trO3.classList.add("option")
         body.appendChild(trO3)
@@ -356,9 +434,6 @@ function render0(){
                 th_O3_Img.appendChild(iamge)
                 trO3.appendChild(th_O3_Img)
             }
-
-
-
 
         let trO4=document.createElement("tr");
         trO4.classList.add("option")
@@ -390,7 +465,6 @@ function render0(){
 
 function CheckAnswerButton(){
 for(let i=0; i<arrData.length; i++){
-
     if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
         questionButtons[i].disabled = false;
         questionButtons[i].style.background="green";
@@ -398,11 +472,8 @@ for(let i=0; i<arrData.length; i++){
     }else{
         questionButtons[i].disabled = false;
         questionButtons[i].style.background="red"; 
-
     }
 }
-   
-
 }
 
 
