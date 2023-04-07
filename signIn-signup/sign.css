@@ -76,3 +76,34 @@ body{
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
+.navbar-custom {
+  background-color: #007bff;
+  height: 70px;
+}
+li a {
+  color: white;
+}
+
+#lin {
+  font-weight: bold;
+  color: white;
+}
+
+#lin:hover {
+  background: white;
+  transition: .5s;
+  color: black;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px white;
+
+
+}
+#name-h {
+  font-family: 'Zeyada';
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+ margin-right: 53rem; 
+  /* margin-left: -rem;  */
+  text-shadow: 2px 2px 5px black;
+}

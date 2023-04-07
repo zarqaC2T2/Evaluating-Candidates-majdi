@@ -15,10 +15,10 @@ function handelSubmitSign(e){
         const element = infoArr[i].email;
         console.log(element)
         if(element===userSign.email){
-            alert(`welcome  ${infoArr[i].user}`)
+           alert(`welcome  ${infoArr[i].user}`)
           checkArr.push(userSign.email,userSign.passWord)
         }
-
+       
         }
         console.log(checkArr)
         
