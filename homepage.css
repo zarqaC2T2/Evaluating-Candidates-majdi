@@ -1,0 +1,74 @@
+body {
+    background-color: black;
+
+}
+
+#name-h {
+    font-family: 'Zeyada';
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    margin-right: 65rem;
+    margin-left: -9rem;
+    text-shadow: 2px 2px 5px black;
+}
+
+
+#lin {
+    font-weight: bold;
+    color: white;
+}
+
+#lin:hover {
+    background: white;
+    transition: .5s;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px white;
+
+
+}
+
+
+.navbar-custom {
+    background-color: #007bff;
+    height: 70px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+    color: white;
+}
+
+#but {
+    background-color: #007bff;
+}
+
+li a {
+    color: white;
+}
+
+#pos {
+    margin-top: 10rem;
+}
+
+#foot {
+    margin-bottom: -3rem;
+}
+
+#boton {
+    margin-left: 2rem;
+}
+
+.pb-3,
+.py-3 {
+    padding-top: 5rem;
+
+    padding-bottom: 0rem !important;
+}
