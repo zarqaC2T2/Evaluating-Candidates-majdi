@@ -12,33 +12,22 @@
   </head>
   <body>
     <header>
-        <nav>
-            <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-            <!-- Copyright -->
-            <div class="text-white mb-3 mb-md-0">
-            nav bar
+      <nav class="navbar navbar-expand-lg navbar-custom  ">
+        <div class="container" id="nav">
+            <a class="navbar-brand" href="#" id="name-h">Recruiter</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse float-right inav " id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link " id="lin" href="#">Home</a>
+                    <a class="nav-item nav-link " id="lin" href="#position">Position</a>
+                    <a class="nav-item nav-link" id="lin" href="#foot">Contact</a>
+                </div>
             </div>
-            <!-- Copyright -->
-        
-            <!-- Right -->
-            <div>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#!" class="text-white">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-            <!-- Right -->
-          </div>
-        </nav>
+        </div>
+    </nav>
     <section class=" form vh-100">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -47,7 +36,7 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form id="form">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-0 me-3">Sign Up</p>
              
@@ -57,29 +46,35 @@
               
             </div>
   
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Name</label>
+              <input type="text" id="form3Example3" class="form-control form-control-lg"
+                placeholder="Enter a valid email address" name="user" value="" />
+            </div>
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example3">Email address</label>
               <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" />
+                placeholder="Enter a valid email address" name="email" value="" />
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
                 <label class="form-label" for="form3Example4">Password</label>
               <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" />
+                placeholder="Enter password" name="password" value=""/>
             </div>
             <div class="form-outline mb-3">
                 <label class="form-label" for="form3Example4">Confirm your Password</label>
               <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" /><br>
+                placeholder="Enter password" name="confirm" value=""/><br>
                 <label  for="position">What position you applied for?</label><br>
 
 <select class="dropDown" name="position" id="cars">
-  <option value="">Html</option>
-  <option value="">Css</option>
-  <option value="">Java Script</option>
+  <option value="Html">Html</option>
+  <option value="Css">Css</option>
+  <option value="Java Script">Java Script</option>
   
 </select>
             </div>
@@ -96,17 +91,17 @@
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              <button type="submit" id="button-submit" class="btn .btn-2 custom-btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign Up</button>
               <p class="small fw-bold mt-2 pt-1 mb-0">Already hava an account? <a href="signIn.html"
-                  class="link-danger">Log in</a></p>
+                  >Log in</a></p>
             </div>
             </form>
         </div>
       </div>
     </div>
-   
-  </section>
+    </section>
     </div>
   </body>
+  <script src="signup.js"></script>
 </html>

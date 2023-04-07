@@ -9,37 +9,27 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="sign.css" />
+    
 </head>
 
   <body>
     <header>
-        <nav>
-            <div
-            class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-            <!-- Copyright -->
-            <div class="text-white mb-3 mb-md-0">
-            nav bar
+      <nav class="navbar navbar-expand-lg navbar-custom  ">
+        <div class="container" id="nav">
+            <a class="navbar-brand" href="#" id="name-h">Recruiter</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse float-right inav " id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link " id="lin" href="#">Home</a>
+                    <a class="nav-item nav-link " id="lin" href="#position">Position</a>
+                    <a class="nav-item nav-link" id="lin" href="#foot">Contact</a>
+                </div>
             </div>
-            <!-- Copyright -->
-        
-            <!-- Right -->
-            <div>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#!" class="text-white me-4">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#!" class="text-white">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-            <!-- Right -->
-          </div>
-        </nav>
+        </div>
+    </nav>
     </header>
     <section class=" form vh-100">
         <div class="container-fluid h-custom">
@@ -49,7 +39,7 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form>
+              <form id="formSign">
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                   <p class="lead fw-normal mb-0 me-3">Log in</p>
               
@@ -63,14 +53,14 @@
                 <div class=" form-outline mb-4">
                     <label class="form-label" for="form3Example3">Email address</label>
                   <input type="email" id="form3Example3" class=" form-control form-control-lg"
-                    placeholder="Enter a valid email address" />
+                    placeholder="Enter a valid email address" name="emailSign" value="" />
                 </div>
       
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <label class="form-label" for="form3Example4">Password</label>
                   <input type="password" id="form3Example4" class="form-control form-control-lg"
-                    placeholder="Enter password" />
+                    placeholder="Enter password" name="passSign" value=""/>
                 </div>
       
                 <div class="d-flex justify-content-between align-items-center">
@@ -85,17 +75,17 @@
                 </div>
       
                 <div class="text-center text-lg-start mt-4 pt-2">
-                  <button type="button" class="btn btn-primary btn-lg"
+                  <button type="submit" class="btn .btn-2 btn-primary custom-btn btn-lg"
                     style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                   <p class="small fw-bold mt-2 pt-1 mb-0">Not a member?<a href="signUp.html"
                       class="">Sign Up</a></p>
                 </div>
-      
-              </form>
+                </form>
             </div>
           </div>
         </div>
        
       </section>
   </body>
+  <script src="signin.js"></script>
 </html>
