@@ -1,7 +1,7 @@
 let arrData =[] // all the questions will be pushed here
-let numberOfQuestions; // number of questions
+let numberOfQuestions=0; // number of questions
 let numberOfPassedQuestions=0; // number of passed questions
-
+let index0=1;
   sessionStorage.clear()
 
 class Questions {  // class to clone the questions
@@ -19,7 +19,7 @@ constructor(Question,option1,option2,option3,option4,answer) { // constructor wi
 
 CheckAnswer(userAnswerSymbol){ // check answer 
     // arrData.push(Q) // push the question to the array
- this.userAnswersymbol=userAnswerSymbol // update the user answer symbol method
+    this.userAnswersymbol=userAnswerSymbol // update the user answer symbol method
     switch (userAnswerSymbol){   // switch statment to convert the  symbol  to a full user answer
 
         case "A":
@@ -55,7 +55,7 @@ CheckAnswer(userAnswerSymbol){ // check answer
 
     
 if(userAnswerSymbol==this.Answersymbol){
-numberOfPassedQuestions+=1
+
 return true
 }
 return false
@@ -77,10 +77,10 @@ let Q1 = new Questions(
 
     let Q2 = new Questions(
         "Q2: What does HTML stand for?",
-        "A: HTML describes the structure of a webpage",
-        "B: HTML describes the structure of a webpage",
-        "C: HTML describes the structure of a webpage",
-        "D: HTML describes the structure of a webpage",
+        "A: CSS describes the structure of a webpage",
+        "B: CSS describes the structure of a webpage",
+        "C: CSS describes the structure of a webpage",
+        "D: CSS describes the structure of a webpage",
         "A"
         );
         arrData.push(Q2)
@@ -88,10 +88,10 @@ let Q1 = new Questions(
 
         let Q3 = new Questions(
             "Q3: What does HTML stand for?",
-            "A: HTML describes the structure of a webpage",
-            "B: HTML describes the structure of a webpage",
-            "C: HTML describes the structure of a webpage",
-            "D: HTML describes the structure of a webpage",
+            "A: JS describes the structure of a webpage",
+            "B: JS describes the structure of a webpage",
+            "C: JS describes the structure of a webpage",
+            "D: JS describes the structure of a webpage",
             "B"
             );
             arrData.push(Q3)
@@ -99,9 +99,76 @@ let Q1 = new Questions(
 
 
 // all the questions will be rendered here 
-render()
-function render(){
-    for(let i=0;i<arrData.length;i++){
+
+let resultstext=document.getElementById("resultstext");
+
+let showResultsButton = document.getElementById("ShowResultsButton")
+showResultsButton.style.display="none"
+showResultsButton.addEventListener("click",function(){   
+    let body=document.getElementById("tbody");
+    removeChilds(body);
+     render0()
+     CheckAnswerButton();
+     showResultsButton.style.display="none"
+
+     resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
+
+})
+
+let questionButtons =document.querySelectorAll(".questionsButtons button")
+render(0)
+
+questionButtons[0].style.background="green";
+for(let i=1; i<questionButtons.length; i++){
+    questionButtons[i].addEventListener("click", function QbuttonFu(){
+       
+        QbuttonF(i)
+    } )
+}
+
+let ShowNextquestion=document.getElementById("ShowNextquestion");
+ShowNextquestion.addEventListener("click", function(){
+    
+    QbuttonF(index0)
+    
+});
+
+function QbuttonF(i){
+    if(arrData[i-1].userAnswer==null){
+        alert("please choose an answer")
+        
+          }else {
+            index0+=1;
+        
+            if(i+1==questionButtons.length ){
+                showResultsButton.style.display="inline-block";
+                ShowNextquestion.style.display="none" ;
+             }else{
+                showResultsButton.style.display="none" ;
+                
+             }
+            
+             
+                    let body0=document.getElementById("tbody");
+                    removeChilds(body0);
+                    render(i)
+                    // questionButtons[i].disabled = true;
+                    questionButtons[i].style.background="green";
+                  
+                    questionButtons[i].removeEventListener("click",function QbuttonFu(){
+                        QbuttonF(i) 
+                    })
+        
+          }
+}
+
+
+
+
+
+
+function render(i){
+    
 
         let body=document.getElementById("tbody");
         let trQ=document.createElement("tr");
@@ -109,8 +176,8 @@ function render(){
         let thQ=document.createElement("th");
         thQ.textContent=arrData[i].Q;
         trQ.appendChild(thQ)
-
-
+        trQ.classList.add("question")
+        
         let trO1=document.createElement("tr");
         trO1.addEventListener("click",function(){
             trO1.style.background="#64FF6A";
@@ -173,7 +240,7 @@ function render(){
         thO4.textContent=arrData[i].D;
         trO4.appendChild(thO4);
 
-    }
+    
 
    
 }
@@ -185,22 +252,11 @@ function clickedOption(userAnswersymbol,i){
  arrData[i].CheckAnswer(userAnswersymbol);
  sessionStorage.setItem('arrData',JSON.stringify(arrData) );
 console.log(arrData[i].userAnswer)
-
-
 }
 
-let showResultsButton = document.getElementById("ShowResultsButton")
 
-showResultsButton.addEventListener("click",function(){
-   
 
-    let body=document.getElementById("tbody");
- 
-    removeChilds(body);
-     render0()
-   
-   
-})
+
  // remove all child nodes
 const removeChilds = (body) => {
     while (body.lastChild) {
@@ -215,6 +271,7 @@ function render0(){
 
         let body=document.getElementById("tbody");
         let trQ=document.createElement("tr");
+        trQ.classList.add("question")
         body.appendChild(trQ)
         let thQ=document.createElement("th");
         thQ.textContent=arrData[i].Q;
@@ -232,7 +289,7 @@ function render0(){
             trO1.classList.add("answer");
             let th_O1_Img=document.createElement("th");
             let iamge=document.createElement("img");
-            iamge.src="/assets/true.png"
+            iamge.src="imagesMajdi/true.png"
             th_O1_Img.appendChild(iamge)
             trO1.appendChild(th_O1_Img)
             }
@@ -240,7 +297,7 @@ function render0(){
                 trO1.classList.add("Wanswer");
                 let th_O1_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="/assets/false.png"
+                iamge.src="imagesMajdi/false.png"
                 th_O1_Img.appendChild(iamge)
                 trO1.appendChild(th_O1_Img)
             }
@@ -260,7 +317,7 @@ function render0(){
             trO2.classList.add("answer");
             let th_O2_Img=document.createElement("th");
             let iamge=document.createElement("img");
-            iamge.src="/assets/true.png"
+            iamge.src="imagesMajdi/true.png"
             th_O2_Img.appendChild(iamge)
             trO2.appendChild(th_O2_Img)
             }
@@ -268,7 +325,7 @@ function render0(){
                 trO2.classList.add("Wanswer");
                 let th_O2_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="/assets/false.png"
+                iamge.src="imagesMajdi/false.png"
                 th_O2_Img.appendChild(iamge)
                 trO2.appendChild(th_O2_Img)
             }
@@ -287,7 +344,7 @@ function render0(){
             trO3.classList.add("answer");
             let th_O3_Img=document.createElement("th");
             let iamge=document.createElement("img");
-            iamge.src="/assets/true.png"
+            iamge.src="imagesMajdi/true.png"
             th_O3_Img.appendChild(iamge)
             trO3.appendChild(th_O3_Img)
             }
@@ -295,7 +352,7 @@ function render0(){
                 trO3.classList.add("Wanswer");
                 let th_O3_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="/assets/false.png"
+                iamge.src="imagesMajdi/false.png"
                 th_O3_Img.appendChild(iamge)
                 trO3.appendChild(th_O3_Img)
             }
@@ -314,7 +371,7 @@ function render0(){
             trO4.classList.add("answer");
             let th_O4_Img=document.createElement("th");
             let iamge=document.createElement("img");
-            iamge.src="/assets/true.png"
+            iamge.src="imagesMajdi/true.png"
             th_O4_Img.appendChild(iamge)
             trO4.appendChild(th_O4_Img)
             }
@@ -322,7 +379,7 @@ function render0(){
                 trO4.classList.add("Wanswer");
                 let th_O4_Img=document.createElement("th");
                 let iamge=document.createElement("img");
-                iamge.src="/assets/false.png"
+                iamge.src="imagesMajdi/false.png"
                 th_O4_Img.appendChild(iamge)
                 trO4.appendChild(th_O4_Img)
             }
@@ -330,3 +387,22 @@ function render0(){
     }
 
 }
+
+function CheckAnswerButton(){
+for(let i=0; i<arrData.length; i++){
+
+    if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
+        questionButtons[i].disabled = false;
+        questionButtons[i].style.background="green";
+        numberOfPassedQuestions+=1; 
+    }else{
+        questionButtons[i].disabled = false;
+        questionButtons[i].style.background="red"; 
+
+    }
+}
+   
+
+}
+
+
