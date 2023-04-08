@@ -125,8 +125,8 @@ let Q1 = new Questions(
 // the first question be rendered here 
 let questionButtons =document.querySelectorAll(".questionsButtons button");
 render(0);
-questionButtons[0].style.background="green";
-
+questionButtons[0].style.background="rgba(71, 200, 236, 0.272)";
+questionButtons[0].disabled =true
 // addEventListener to all question Buttons 
 for(let i=1; i<questionButtons.length; i++){
     questionButtons[i].addEventListener("click", function(){
@@ -158,7 +158,7 @@ ShowNextquestion.addEventListener("click", function(){
        removeChilds(body0);
        render(i)
        questionButtons[i].disabled = true;
-       questionButtons[i].style.background="green";    
+       questionButtons[i].style.background="rgba(71, 200, 236, 0.272)";    
             }
             }
 
@@ -178,7 +178,7 @@ function render(i){
         
         let trO1=document.createElement("tr");
         trO1.addEventListener("click",function(){ // click on option A to update 
-            trO1.style.background="#64FF6A";
+            trO1.style.background="rgba(71, 200, 236, 0.272)";
             trO2.style.background="none";
             trO3.style.background="none";
             trO4.style.background="none";  
@@ -194,7 +194,7 @@ function render(i){
         let trO2=document.createElement("tr");
          trO2.addEventListener("click",function(){ // click on option B to update
             trO1.style.background="none";
-            trO2.style.background="#64FF6A";
+            trO2.style.background="rgba(71, 200, 236, 0.272)";
             trO3.style.background="none";
             trO4.style.background="none";
             clickedOption("B",i) // function to update the user answer and save it in the local storage
@@ -211,7 +211,7 @@ function render(i){
          trO3.addEventListener("click",function(){ // click on option C to update
             trO1.style.background="none";
             trO2.style.background="none";
-            trO3.style.background="#64FF6A";
+            trO3.style.background="rgba(71, 200, 236, 0.272)";
             trO4.style.background="none";
             clickedOption("C",i) // function to update the user answer and save it in the local storage
            
@@ -228,7 +228,7 @@ function render(i){
             trO1.style.background="none";
             trO2.style.background="none";
             trO3.style.background="none";
-            trO4.style.background="#64FF6A";
+            trO4.style.background="rgba(71, 200, 236, 0.272)";
             clickedOption("D",i) // function to update the user answer and save it in the local storage
             
         })
@@ -262,8 +262,6 @@ const removeChilds = (body) => {
 
 
 
-// let showResultsButton = document.getElementById("ShowResultsButton")
-// showResultsButton.style.display="none"
 
 showResultsButton.addEventListener("click", function(){
     CheckAnswerButton();
@@ -285,4 +283,28 @@ if(numberOfPassedQuestions>arrData.length/2){
         }
         localStorage.setItem('NPQ',JSON.stringify(numberOfPassedQuestions) );
         }
+       let count =10;
+       let timeLeft=document.getElementsByClassName("time-left")[0];
+        const timerDisplay = () => {
+            countdown = setInterval(() => {
+                count--;
+                timeLeft.innerHTML = `${count}s`;
+                if (count == 0) {
+                    clearInterval(countdown);
+                    displayNext();
+                }
+            }, 1000);
+        };
 
+        timerDisplay()
+
+        function displayNext(){
+            CheckAnswerButton();
+            if(numberOfPassedQuestions>arrData.length/2){
+                location.replace("./pass.html")
+            }else{
+                location.replace("./failed.html")
+            
+            }
+
+        };

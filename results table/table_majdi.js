@@ -8,11 +8,9 @@ if(localStorage.arrData != null && localStorage.NPQ != null){
     numberOfPassedQuestions=JSON.parse(localStorage.NPQ) 
     // let body=document.getElementById("tbody");
     // removeChilds(body);
-
      resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
      disablebuttons()
      render0()
-
 
 }
 

@@ -7,7 +7,8 @@
  .buttonShow{
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: start;
+ margin-left: 5%;
  
  }
  
@@ -33,7 +34,12 @@
     font-weight: bolder;
     font-size: larger;
    }
- 
+   thead tr{
+   
+      display: flex; 
+      align-items: center;  
+      justify-content: space-between;
+      }
     tbody tr.option{
     margin-bottom: 1rem ;
     border: 1px solid rgb(19, 143, 205) ;
@@ -46,11 +52,11 @@
     padding-left: 0.25rem;
  }
  
- 
+
  .option:hover{
  
     box-shadow: 1px 1px 0px 0px blue;
- transform: scale(1.02);
+   transform: scale(1.02);
  }
  
  .answer{
@@ -68,20 +74,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
  }
  .questionsButtons button{
-  width:  3rem;
-  height: 3rem;
+  width:  2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  border-radius: 5rem;
  }
  
  
- tr button{
- margin: 1rem;
- border-radius: 5rem;
- 
- }
+
  
  
- tr button:hover{
+ .questionsButtons button:hover{
  border: 1px solid black;
+    }
+
+    .timer-div {
+      background-color: #e1f5fe;
+      width: 4em;
+      border-radius: 1.8em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4em 1.2em;
+    }
+
+    #table_div{
+      background: #e5e9e2;
+      margin: 5rem auto;
+      padding: 2rem 0 ;
+      max-width: 40rem ;
+  
+      border-radius: 2rem;
+    }
+
+    .showbutton{
+    padding: 0.5rem 2rem;
+    border-radius: 0.7rem;
+     
+    }
+
+    #trhead{
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid black;
+    }
+
+
+    .nextShowButton{
+    width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      margin-top: 0.5rem;
     }
