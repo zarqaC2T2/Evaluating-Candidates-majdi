@@ -1,21 +1,6 @@
 let arrData =[] // all the questions will be pushed here
-let numberOfQuestions=0; // number of questions
 let numberOfPassedQuestions=0; // number of passed questions
 let index0=1;
-let page0="quiz";
-sessionStorage.clear()
-
-
-let failedR=document.getElementById("failed")
-failedR.style.display="none";
-
-
-
-
-if(sessionStorage.arrData!= null && sessionStorage.page0 !== null){
-    arrData=JSON.parse(sessionStorage.arrData)  
-    page0=JSON.parse(sessionStorage.page0)  
-}
 
 class Questions {  // class to clone the questions
 constructor(Question,option1,option2,option3,option4,answer) { // constructor with question options and result
@@ -135,88 +120,18 @@ let resultstext=document.getElementById("resultstext");
 
 let showResultsButton = document.getElementById("ShowResultsButton")
 showResultsButton.style.display="none"
-showResultsButton.addEventListener("click",function(){   
-    let body=document.getElementById("tbody");
-    removeChilds(body);
-   
-    
-     CheckAnswerButton();
-     showResultsButton.style.display="none"
-
-     resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
-     disablebuttons()
-     page0="results";
-     sessionStorage.setItem("page0", JSON.stringify(page0));
-
-    //  let tablediv =document.getElementById("table_div");
-    //   tablediv.style.display="none"
-    let h002=document.getElementById('Qstatus');
-    let ptitle=document.getElementById('ptitle');
-    if(numberOfPassedQuestions>(arrData.length/2)){
-
-       
-            var head  = document.getElementsByTagName('head')[0];
-            var link  = document.createElement('link');
-            link.rel  = 'stylesheet';
-            link.type = 'text/css';
-            link.href = 'pass.css';
-            link.media = 'all';
-            head.appendChild(link);
-            h002.textContent="Congrats";
-            failedR.style.display="block";
-
-    }else{
-        var head  = document.getElementsByTagName('head')[0];
-        var link  = document.createElement('link');
-        link.rel  = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'failed.css';
-        link.media = 'all';
-        head.appendChild(link);
-        let h002=document.getElementById('Qstatus');
-        h002.textContent="Sorry";
-        failedR.style.display="block";
-
-    }
-
-    ptitle.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
-
-
-   let ShowAnswersTable=document.getElementById('ShowAnswersTable');
-   ShowAnswersTable.addEventListener("click",function(){
-    failedR.style.display="none";
-    
-     // remove all child nodes
-   
-    for(let i=0 ; i<2;i++){
-        head.removeChild(head.lastChild);
-    }
-      
-        render0()
-       
-
-   })
 
 
 
-})
-
-function disablebuttons(){
-for (let i=0; i<questionButtons.length; i++){
-    questionButtons[i].disabled = true;
-
-}
-}
 
 
 
 
 let questionButtons =document.querySelectorAll(".questionsButtons button")
 render(0)
-
 questionButtons[0].style.background="green";
 for(let i=1; i<questionButtons.length; i++){
-    questionButtons[i].addEventListener("click", function QbuttonFu(){
+    questionButtons[i].addEventListener("click", function(){
        
         QbuttonF(i)
     } )
@@ -334,7 +249,7 @@ function render(i){
 
 function clickedOption(userAnswersymbol,i){
  arrData[i].CheckAnswer(userAnswersymbol);
- sessionStorage.setItem('arrData',JSON.stringify(arrData) );
+ localStorage.setItem('arrData',JSON.stringify(arrData) );
 console.log(arrData[i].userAnswer)
 }
 
@@ -350,130 +265,5 @@ const removeChilds = (body) => {
 
 
 
-function render0(){
-    for(let i=0;i<arrData.length;i++){
-
-        let body=document.getElementById("tbody");
-        let trQ=document.createElement("tr");
-        trQ.classList.add("question")
-        body.appendChild(trQ)
-        let thQ=document.createElement("th");
-        thQ.textContent=arrData[i].Q;
-        trQ.appendChild(thQ)
-
-
-        let trO1=document.createElement("tr");
-        trO1.classList.add("option");
-        body.appendChild(trO1)
-        let thO1=document.createElement("th");
-        thO1.textContent=arrData[i].A;
-        trO1.appendChild(thO1);
-
-            if(arrData[i].Answersymbol=="A"){
-            trO1.classList.add("answer");
-            let th_O1_Img=document.createElement("th");
-            let iamge=document.createElement("img");
-            iamge.src="imagesMajdi/true.png"
-            th_O1_Img.appendChild(iamge)
-            trO1.appendChild(th_O1_Img)
-            }
-            else if(arrData[i].userAnswersymbol =="A" && arrData[i].Answersymbol!="A" ){
-                trO1.classList.add("Wanswer");
-                let th_O1_Img=document.createElement("th");
-                let iamge=document.createElement("img");
-                iamge.src="imagesMajdi/false.png"
-                th_O1_Img.appendChild(iamge)
-                trO1.appendChild(th_O1_Img)
-            }
-
-
-        let trO2=document.createElement("tr");
-        trO2.classList.add("option")
-        body.appendChild(trO2)
-        let thO2=document.createElement("th");
-        thO2.textContent=arrData[i].B;
-        trO2.appendChild(thO2)
-
-            if(arrData[i].Answersymbol=="B"){
-            trO2.classList.add("answer");
-            let th_O2_Img=document.createElement("th");
-            let iamge=document.createElement("img");
-            iamge.src="imagesMajdi/true.png"
-            th_O2_Img.appendChild(iamge)
-            trO2.appendChild(th_O2_Img)
-            }
-            else if(arrData[i].userAnswersymbol =="B" && arrData[i].Answersymbol!="B" ){
-                trO2.classList.add("Wanswer");
-                let th_O2_Img=document.createElement("th");
-                let iamge=document.createElement("img");
-                iamge.src="imagesMajdi/false.png"
-                th_O2_Img.appendChild(iamge)
-                trO2.appendChild(th_O2_Img)
-            }
-
-        let trO3=document.createElement("tr");
-        trO3.classList.add("option")
-        body.appendChild(trO3)
-        let thO3=document.createElement("th");
-        thO3.textContent=arrData[i].C;
-        trO3.appendChild(thO3);
-
-            if(arrData[i].Answersymbol=="C"){
-            trO3.classList.add("answer");
-            let th_O3_Img=document.createElement("th");
-            let iamge=document.createElement("img");
-            iamge.src="imagesMajdi/true.png"
-            th_O3_Img.appendChild(iamge)
-            trO3.appendChild(th_O3_Img)
-            }
-            else if(arrData[i].userAnswersymbol =="C" && arrData[i].Answersymbol!="C" ){
-                trO3.classList.add("Wanswer");
-                let th_O3_Img=document.createElement("th");
-                let iamge=document.createElement("img");
-                iamge.src="imagesMajdi/false.png"
-                th_O3_Img.appendChild(iamge)
-                trO3.appendChild(th_O3_Img)
-            }
-
-        let trO4=document.createElement("tr");
-        trO4.classList.add("option")
-        body.appendChild(trO4)
-        let thO4=document.createElement("th");
-        thO4.textContent=arrData[i].D;
-        trO4.appendChild(thO4);
-
-            if(arrData[i].Answersymbol=="D"){
-            trO4.classList.add("answer");
-            let th_O4_Img=document.createElement("th");
-            let iamge=document.createElement("img");
-            iamge.src="imagesMajdi/true.png"
-            th_O4_Img.appendChild(iamge)
-            trO4.appendChild(th_O4_Img)
-            }
-            else if(arrData[i].userAnswersymbol =="D" && arrData[i].Answersymbol!="D" ){
-                trO4.classList.add("Wanswer");
-                let th_O4_Img=document.createElement("th");
-                let iamge=document.createElement("img");
-                iamge.src="imagesMajdi/false.png"
-                th_O4_Img.appendChild(iamge)
-                trO4.appendChild(th_O4_Img)
-            }
-
-    }
-
-}
-
-function CheckAnswerButton(){
-for(let i=0; i<arrData.length; i++){
-    if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
-        questionButtons[i].disabled = false;
-        questionButtons[i].style.background="green";
-        numberOfPassedQuestions+=1; 
-    }else{
-        questionButtons[i].disabled = false;
-        questionButtons[i].style.background="red"; 
-    }
-}
-}
 
 

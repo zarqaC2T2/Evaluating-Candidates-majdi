@@ -1,74 +1,87 @@
 *{
-   padding: 0;
-   margin: 0;
-   color: rgb(0, 12, 245);
-}
-
-.buttonShow{
-display: flex;
-align-items: center;
-justify-content: center;
-
-}
-
-#table_body{
-   margin: 0px auto;
-   padding: 1rem;
-   width: 70%;
+    padding: 0;
+    margin: 0;
+    color: rgb(0, 12, 245);
+ }
+ 
+ .buttonShow{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ 
+ }
+ 
+ #table_body{
+    margin: 0px auto;
+    padding: 1rem;
+    width: 70%;
+    }
+ 
+ tr img {
+    width: 2rem;
+ }
+ 
+ 
+    tbody tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem ;
+    margin-bottom: 1rem ;
    }
-
-tr img {
-   width: 2rem;
-}
-
-
-   tbody tr{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   height: 3rem ;
-   margin-bottom: 1rem ;
-  }
-  .question{
-   font-weight: bolder;
-   font-size: larger;
-  }
-
-   tbody tr.option{
-   margin-bottom: 1rem ;
-   border: 1px solid rgb(19, 143, 205) ;
-   display: flex;   
+   .question{
+    font-weight: bolder;
+    font-size: larger;
    }
-
-.option{
-   box-shadow: 0px 1px 0px 0px black; 
-   border-radius: 0.5rem;
-   padding-left: 0.25rem;
-}
-
-
-.option:hover{
-background: gray;
-transform: scale(1.02);
-}
-
-.answer{
-   box-shadow: 0px 1px 5px 0px black;
-  background: #64FF6A;
-}
-
-.Wanswer{
-   box-shadow: 0px 1px 5px 0px black;
-  background: #F67373;
-}
-
-
-.questionsButtons{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-.questionsButtons button{
- width:  3rem;
- height: 3rem;
-}
+ 
+    tbody tr.option{
+    margin-bottom: 1rem ;
+    border: 1px solid rgb(19, 143, 205) ;
+    display: flex;   
+    }
+ 
+ .option{
+    box-shadow: 0px 1px 0px 0px black; 
+    border-radius: 0.5rem;
+    padding-left: 0.25rem;
+ }
+ 
+ 
+ .option:hover{
+ 
+    box-shadow: 1px 1px 0px 0px blue;
+ transform: scale(1.02);
+ }
+ 
+ .answer{
+    box-shadow: 0px 1px 5px 0px black;
+   background: #64FF6A;
+ }
+ 
+ .Wanswer{
+    box-shadow: 0px 1px 5px 0px black;
+   background: #F67373;
+ }
+ 
+ 
+ .questionsButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .questionsButtons button{
+  width:  3rem;
+  height: 3rem;
+ }
+ 
+ 
+ tr button{
+ margin: 1rem;
+ border-radius: 5rem;
+ 
+ }
+ 
+ 
+ tr button:hover{
+ border: 1px solid black;
+    }
