@@ -28,6 +28,10 @@ tr img {
    height: 3rem ;
    margin-bottom: 1rem ;
   }
+  .question{
+   font-weight: bolder;
+   font-size: larger;
+  }
 
    tbody tr.option{
    margin-bottom: 1rem ;
@@ -55,4 +59,15 @@ transform: scale(1.02);
 .Wanswer{
    box-shadow: 0px 1px 5px 0px black;
   background: #F67373;
+}
+
+
+.questionsButtons{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.questionsButtons button{
+ width:  3rem;
+ height: 3rem;
 }
