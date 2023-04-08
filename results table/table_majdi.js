@@ -3,14 +3,11 @@ let numberOfPassedQuestions=0; // number of passed questions
 let questionButtons =document.querySelectorAll(".questionsButtons button")
 
 
-if(localStorage.arrData!= null){
+if(localStorage.arrData != null && localStorage.NPQ != null){
     arrData=JSON.parse(localStorage.arrData)  
-
-    let body=document.getElementById("tbody");
+    numberOfPassedQuestions=JSON.parse(localStorage.NPQ) 
+    // let body=document.getElementById("tbody");
     // removeChilds(body);
-   
-    
-     CheckAnswerButton();
 
      resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
      disablebuttons()
@@ -19,21 +16,14 @@ if(localStorage.arrData!= null){
 
 }
 
-function disablebuttons(){
-    for (let i=0; i<questionButtons.length; i++){
-        questionButtons[i].disabled = true;
-    
-    }
-    }
 
-    function CheckAnswerButton(){
+
+    function disablebuttons(){
         for(let i=0; i<arrData.length; i++){
+            questionButtons[i].disabled = true;
             if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
-                questionButtons[i].disabled = false;
                 questionButtons[i].style.background="green";
-                numberOfPassedQuestions+=1; 
             }else{
-                questionButtons[i].disabled = false;
                 questionButtons[i].style.background="red"; 
             }
         }

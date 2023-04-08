@@ -1,6 +1,7 @@
 let arrData =[] // all the questions will be pushed here
 let numberOfPassedQuestions=0; // number of passed questions
 let index0=1;
+localStorage.clear();
 
 class Questions {  // class to clone the questions
 constructor(Question,option1,option2,option3,option4,answer) { // constructor with question options and result
@@ -114,36 +115,34 @@ let Q1 = new Questions(
                     );
                     arrData.push(Q5)
         
-// all the questions will be rendered here 
 
-let resultstext=document.getElementById("resultstext");
-
-let showResultsButton = document.getElementById("ShowResultsButton")
-showResultsButton.style.display="none"
-
+         // hide show results buttons
+          let showResultsButton = document.getElementById("ShowResultsButton");
+          showResultsButton.style.display="none";
+                    
 
 
-
-
-
-
-let questionButtons =document.querySelectorAll(".questionsButtons button")
-render(0)
+// the first question be rendered here 
+let questionButtons =document.querySelectorAll(".questionsButtons button");
+render(0);
 questionButtons[0].style.background="green";
+
+// addEventListener to all question Buttons 
 for(let i=1; i<questionButtons.length; i++){
     questionButtons[i].addEventListener("click", function(){
-       
+        // function to render the next question if there is an answer
         QbuttonF(i)
-    } )
+    })
 }
 
+// addEventListener to next question Button
 let ShowNextquestion=document.getElementById("ShowNextquestion");
 ShowNextquestion.addEventListener("click", function(){
-    
-    QbuttonF(index0)
-    
+// function to check if there is an answer
+    QbuttonF(index0)  
 });
 
+// function to check if there is an answer
     function QbuttonF(i){
     if(arrData[i-1].userAnswer==null){
      alert("please choose an answer")  
@@ -167,10 +166,8 @@ ShowNextquestion.addEventListener("click", function(){
 
 
 
-
-function render(i){
-    
-
+// function to render the next question
+function render(i){  
         let body=document.getElementById("tbody");
         let trQ=document.createElement("tr");
         body.appendChild(trQ)
@@ -180,12 +177,12 @@ function render(i){
         trQ.classList.add("question")
         
         let trO1=document.createElement("tr");
-        trO1.addEventListener("click",function(){
+        trO1.addEventListener("click",function(){ // click on option A to update 
             trO1.style.background="#64FF6A";
             trO2.style.background="none";
             trO3.style.background="none";
             trO4.style.background="none";  
-            clickedOption("A",i)
+            clickedOption("A",i) // function to update the user answer and save it in the local storage
         })
         trO1.classList.add("option");
         body.appendChild(trO1)
@@ -195,12 +192,12 @@ function render(i){
 
 
         let trO2=document.createElement("tr");
-         trO2.addEventListener("click",function(){
+         trO2.addEventListener("click",function(){ // click on option B to update
             trO1.style.background="none";
             trO2.style.background="#64FF6A";
             trO3.style.background="none";
             trO4.style.background="none";
-            clickedOption("B",i)
+            clickedOption("B",i) // function to update the user answer and save it in the local storage
             
         })
         trO2.classList.add("option")
@@ -211,12 +208,12 @@ function render(i){
 
 
         let trO3=document.createElement("tr");
-         trO3.addEventListener("click",function(){
+         trO3.addEventListener("click",function(){ // click on option C to update
             trO1.style.background="none";
             trO2.style.background="none";
             trO3.style.background="#64FF6A";
             trO4.style.background="none";
-            clickedOption("C",i)
+            clickedOption("C",i) // function to update the user answer and save it in the local storage
            
         })
         trO3.classList.add("option")
@@ -227,12 +224,12 @@ function render(i){
 
 
         let trO4=document.createElement("tr");
-         trO4.addEventListener("click",function(){
+         trO4.addEventListener("click",function(){ // click on option C to update
             trO1.style.background="none";
             trO2.style.background="none";
             trO3.style.background="none";
             trO4.style.background="#64FF6A";
-            clickedOption("D",i)
+            clickedOption("D",i) // function to update the user answer and save it in the local storage
             
         })
         trO4.classList.add("option")
@@ -246,7 +243,7 @@ function render(i){
 
 
 
-
+// function to update the user answer and save it in the local storage
 function clickedOption(userAnswersymbol,i){
  arrData[i].CheckAnswer(userAnswersymbol);
  localStorage.setItem('arrData',JSON.stringify(arrData) );
@@ -265,5 +262,27 @@ const removeChilds = (body) => {
 
 
 
+// let showResultsButton = document.getElementById("ShowResultsButton")
+// showResultsButton.style.display="none"
 
+showResultsButton.addEventListener("click", function(){
+    CheckAnswerButton();
+if(numberOfPassedQuestions>arrData.length/2){
+    location.replace("./pass.html")
+}else{
+    location.replace("./failed.html")
+
+}
+
+
+})
+
+    function CheckAnswerButton(){
+        for(let i=0; i<arrData.length; i++){
+            if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
+                numberOfPassedQuestions+=1; 
+            }
+        }
+        localStorage.setItem('NPQ',JSON.stringify(numberOfPassedQuestions) );
+        }
 
