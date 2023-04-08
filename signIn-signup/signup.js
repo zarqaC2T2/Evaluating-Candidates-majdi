@@ -41,10 +41,9 @@ const user=
     }
  
     let infoUser=new User(user.user,user.passWord,user.email,user.position);
-    
+   
        if(
-      
-      UserValidate(user.user)&&
+            UserValidate(user.user)&&
        emailValidate(user.email)&&
       PassWordValidate(user.passWord)&&
       user.confirm==user.passWord
@@ -61,6 +60,8 @@ const user=
             checkArr.push(element)
         }
         
+        }else{
+          alert("Please enter valid details")
         }
         console.log(checkArr)
         let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
@@ -70,6 +71,9 @@ if(findDuplicates(checkArr).length!==0){
   
   infoArr.pop();
    
+}else{
+  alert("Congratulations !now you have an account")
+  // add start exam function
 }
    
 }
@@ -77,5 +81,5 @@ if(findDuplicates(checkArr).length!==0){
 
 
 
-
+// localStorage.clear();
 
