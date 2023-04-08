@@ -23,7 +23,7 @@ function handelSubmitSign(e){
         console.log(checkArr)
         
         if(!checkArr.includes(userSign.email)){
-            alert(` the email is incorrect`)
+            alert(`seems like you dont have account ,sign up now`)
         }
         if(checkArr[1]!=userSign.passWord){
             alert("wrong password")
