@@ -25,6 +25,8 @@ this.passWord=passWord;
 this.email=email;
 this.position=position;
 }
+
+
 const form=document.getElementById("form")
 form.addEventListener("submit",handelSubmit) 
  function handelSubmit(e){
