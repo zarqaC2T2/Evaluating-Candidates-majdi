@@ -125,7 +125,7 @@ let Q1 = new Questions(
 // the first question be rendered here 
 let questionButtons =document.querySelectorAll(".questionsButtons button");
 render(0);
-questionButtons[0].style.background="rgba(71, 200, 236, 0.272)";
+questionButtons[0].style.background="#007bff";
 questionButtons[0].disabled =true
 // addEventListener to all question Buttons 
 for(let i=1; i<questionButtons.length; i++){
@@ -158,7 +158,7 @@ ShowNextquestion.addEventListener("click", function(){
        removeChilds(body0);
        render(i)
        questionButtons[i].disabled = true;
-       questionButtons[i].style.background="rgba(71, 200, 236, 0.272)";    
+       questionButtons[i].style.background="#007bff";    
             }
             }
 
@@ -283,7 +283,7 @@ if(numberOfPassedQuestions>arrData.length/2){
         }
         localStorage.setItem('NPQ',JSON.stringify(numberOfPassedQuestions) );
         }
-       let count =10;
+       let count =60;
        let timeLeft=document.getElementsByClassName("time-left")[0];
         const timerDisplay = () => {
             countdown = setInterval(() => {

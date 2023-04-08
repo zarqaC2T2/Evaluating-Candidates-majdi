@@ -20,9 +20,9 @@ if(localStorage.arrData != null && localStorage.NPQ != null){
         for(let i=0; i<arrData.length; i++){
             questionButtons[i].disabled = true;
             if(arrData[i].userAnswersymbol == arrData[i].Answersymbol){
-                questionButtons[i].style.background="green";
+                questionButtons[i].style.background="#64FF6A";
             }else{
-                questionButtons[i].style.background="red"; 
+                questionButtons[i].style.background="#F67373"; 
             }
         }
         }
