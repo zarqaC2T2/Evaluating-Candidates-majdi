@@ -1,7 +1,37 @@
 let arrData =[] // all the questions will be pushed here
+let arrDataTime =[] 
 let numberOfPassedQuestions=0; // number of passed questions
 let index0=1;
 localStorage.clear();
+let pnumQ=document.getElementById("pnumQ");
+
+
+let count =60;
+let timeLeft=document.getElementsByClassName("time-left")[0];
+ const timerDisplay = () => {
+     countdown = setInterval(() => {
+         count--;
+         console.log(count)
+         timeLeft.innerHTML = `${count}s`;
+         if (count == 0) {
+             clearInterval(countdown);
+             displayNext();
+         }
+     }, 1000);
+ };
+
+ timerDisplay()
+
+ function displayNext(){
+     CheckAnswerButton();
+     if(numberOfPassedQuestions>arrData.length/2){
+         location.replace("./pass.html")
+     }else{
+         location.replace("./failed.html")
+     
+     }
+ };
+
 
 class Questions {  // class to clone the questions
 constructor(Question,option1,option2,option3,option4,answer) { // constructor with question options and result
@@ -116,6 +146,11 @@ let Q1 = new Questions(
                     arrData.push(Q5)
         
 
+
+    localStorage.setItem('arrData',JSON.stringify(arrData) );
+
+
+
          // hide show results buttons
           let showResultsButton = document.getElementById("ShowResultsButton");
           showResultsButton.style.display="none";
@@ -147,6 +182,11 @@ ShowNextquestion.addEventListener("click", function(){
     if(arrData[i-1].userAnswer==null){
      alert("please choose an answer")  
      }else {
+
+        arrDataTime.push(count);
+        localStorage.setItem('arrDataTime',JSON.stringify(arrDataTime) );
+
+
      index0+=1;
         if(i+1==questionButtons.length ){
          showResultsButton.style.display="inline-block";
@@ -166,8 +206,18 @@ ShowNextquestion.addEventListener("click", function(){
 
 
 
+
 // function to render the next question
 function render(i){  
+
+
+
+
+
+
+
+    
+    pnumQ.textContent=`${i+1} of ${arrData.length} question`;
         let body=document.getElementById("tbody");
         let trQ=document.createElement("tr");
         body.appendChild(trQ)
@@ -265,6 +315,9 @@ const removeChilds = (body) => {
 
 showResultsButton.addEventListener("click", function(){
     CheckAnswerButton();
+   
+       arrDataTime.push(count);
+       localStorage.setItem('arrDataTime',JSON.stringify(arrDataTime) );
 if(numberOfPassedQuestions>arrData.length/2){
     location.replace("./pass.html")
 }else{
@@ -283,28 +336,3 @@ if(numberOfPassedQuestions>arrData.length/2){
         }
         localStorage.setItem('NPQ',JSON.stringify(numberOfPassedQuestions) );
         }
-       let count =10;
-       let timeLeft=document.getElementsByClassName("time-left")[0];
-        const timerDisplay = () => {
-            countdown = setInterval(() => {
-                count--;
-                timeLeft.innerHTML = `${count}s`;
-                if (count == 0) {
-                    clearInterval(countdown);
-                    displayNext();
-                }
-            }, 1000);
-        };
-
-        timerDisplay()
-
-        function displayNext(){
-            CheckAnswerButton();
-            if(numberOfPassedQuestions>arrData.length/2){
-                location.replace("./pass.html")
-            }else{
-                location.replace("./failed.html")
-            
-            }
-
-        };

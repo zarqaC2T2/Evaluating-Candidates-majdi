@@ -1,14 +1,14 @@
 let arrData =[] // all the questions will be pushed here
 let numberOfPassedQuestions=0; // number of passed questions
 let questionButtons =document.querySelectorAll(".questionsButtons button")
-
+let arrDataTime=JSON.parse(localStorage.arrDataTime);
 
 if(localStorage.arrData != null && localStorage.NPQ != null){
     arrData=JSON.parse(localStorage.arrData)  
     numberOfPassedQuestions=JSON.parse(localStorage.NPQ) 
     // let body=document.getElementById("tbody");
     // removeChilds(body);
-     resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
+    //  resultstext.textContent=`number of correct answers = ${numberOfPassedQuestions}/${arrData.length}`
      disablebuttons()
      render0()
 
@@ -31,8 +31,48 @@ if(localStorage.arrData != null && localStorage.NPQ != null){
 
 function render0(){
     for(let i=0;i<arrData.length;i++){
+//         <thead>
+//         <tr id="trhead">
+//         <th><p id="pnumQ">1 of 5 question</p></th>
+//         <th>
+//             <div class="timer-div">
+//                 <img style="width: 1.5rem;" src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png"
+//                     width="1rem" />
+//                 <span class="time-left"></span>
+//             </div>
+//         </th>
 
-        let body=document.getElementById("tbody");
+//     </tr>
+
+// </thead> 
+let body=document.getElementById("tbody");
+// let head=document.getElementById("thead");
+let trQT=document.createElement("tr");
+body.appendChild(trQT);
+let thQT=document.createElement("th");
+trQT.appendChild(thQT);
+let pQT=document.createElement("p");
+pQT.textContent=`Q${i+1} of ${arrData.length}`
+thQT.appendChild(pQT);
+let thQT2=document.createElement("th");
+let divQT=document.createElement("div");
+trQT.appendChild(thQT2);
+thQT2.appendChild(divQT);
+divQT.classList.add("timer-div");
+thQT2.appendChild(divQT);
+let imgQT=document.createElement("img");
+imgQT.src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png";
+imgQT.style.width="1.5rem";
+let spanQT=document.createElement("span");
+spanQT.innerHTML=`${60-arrDataTime[i]} s`;
+spanQT.classList.add("time-left");
+
+divQT.appendChild(imgQT);
+divQT.appendChild(spanQT);
+
+
+
+      
         let trQ=document.createElement("tr");
         trQ.classList.add("question")
         body.appendChild(trQ)
@@ -137,6 +177,11 @@ function render0(){
                 th_O4_Img.appendChild(iamge)
                 trO4.appendChild(th_O4_Img)
             }
+
+            let hr00=document.createElement("hr");
+            hr00.style.border="1px solid black";
+            hr00.style.marginBottom="1rem"
+            body.appendChild(hr00)
 
     }
 
