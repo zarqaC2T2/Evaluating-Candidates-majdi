@@ -50,7 +50,7 @@ body {
   .nav {
     display: flex;
     background-color: #007bfff2;
-  
+   
     align-items:center;
     justify-content: space-between;
     
@@ -146,6 +146,7 @@ body {
     padding-bottom: 20px;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
+
   }
   .animate-charcter
   {
