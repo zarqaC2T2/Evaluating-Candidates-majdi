@@ -1,3 +1,4 @@
+
 body {
     background-color: #222222;
 
@@ -33,7 +34,7 @@ body {
 
 .navbar-custom {
     background-color: #007bff;
-    height: 70px;
+    /* height: 70px; */
 }
 
 
@@ -41,7 +42,8 @@ body {
     font-size: 2rem;
     letter-spacing: 1px;
     cursor: pointer;
-    margin-left: 1.5rem;
+    margin-left: 5rem;
+    margin-bottom: 20px;
   }
   
   /* nav bar starts here */
@@ -50,7 +52,7 @@ body {
   .nav {
     display: flex;
     background-color: #007bfff2;
-   
+   height: 80px !important;
     align-items:center;
     justify-content: space-between;
     
@@ -65,9 +67,12 @@ body {
     /* background-color: antiquewhite; */
   }
   nav ul {
+    
     list-style:none;
     display: flex;
     column-gap: 3rem;
+    align-items: center;
+    justify-content: center;
    
   }
   
@@ -85,7 +90,7 @@ body {
   .nav div.logo {
     float: left;
     width: auto;
-    height: 65px;
+    /* height: 65px; */
     padding-left: 3rem;
   }
   
@@ -114,10 +119,12 @@ body {
   }
   
   .nav div.main_list ul li {
-    width: auto;
-    height: auto;
-    padding: 0;
-    padding-right: 3rem;
+  
+  
+    padding-bottom: 20px;
+    padding-right: 2rem;
+    margin: 27.5px 0px;
+
   }
   
   .nav div.main_list ul li a {
@@ -139,6 +146,9 @@ body {
   
   .navTrigger {
     display: none;
+  }
+  .container{
+    /* margin-bottom: 50px; */
   }
   
   .nav {
@@ -181,7 +191,7 @@ body {
   
   @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
-      margin: 0;
+      margin-bottom: 20px;
     }
   }
   

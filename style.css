@@ -1,82 +1,36 @@
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-
-.h-custom {
-height: calc(100% - 73px);
-}
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
-}
-}
-#form{
-  margin-top: 100px;
-}
-.form input{
-  border-radius: .7rem;
+body {
+    background-color: #222222;
 
 }
-.form button{
-border-radius: 10rem;
-width: 20rem;
-background-color: white;
-}
-.dropDown {
-    border-radius: .7rem;
-    width: 15rem;
-    padding: .4rem;
+
+#name-h {
+    font-family: 'Zeyada';
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
     text-align: center;
-   
-  
-}
-body{
-    background-color:#222222;
-    color:#eee
+    /* margin-right: 36rem; */
+    /* margin-left: -9rem; */
+    text-shadow: 2px 2px 5px black;
 }
 
-.custom-btn {
-  width: 130px;
-  height: 40px;
-  color: #000000;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(12, 6, 6, 0.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-  font-size: 15px;
+
+#lin {
+    font-weight: bold;
+    color: white;
 }
 
-.btn-2 {
-  background: #004dff;
-  background: linear-gradient(0deg, #004dff 0%, #004dff 100%);
-  border: none;
+#lin:hover {
+    background: white;
+    transition: .5s;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px white;
+
+
 }
 
-.btn-2:before {
-  height: 0%;
-  width: 2px;
-}
 
-.btn-2:hover {
-  box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
-}
 
 .navbar-custom {
   background-color: #007bff;
@@ -363,32 +317,50 @@ nav div a .logo:hover {
   color: #fff;
 }
 
+  
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+#title,
+span {
+    color: white;
+}
+
+#but {
+    background-color: #007bff;
+}
 
 li a {
-  color: white;
+    color: white;
 }
 
-#lin {
-  font-weight: bold;
-  color: white;
+
+header{
+  margin-top: 150px;
 }
 
-#lin:hover {
-  background: white;
-  transition: .5s;
-  color: black;
-  border-radius: 3px;
-  box-shadow: 2px 2px 5px white;
-
-
+#foot {
+    margin-bottom: -3rem;
 }
-#name-h {
-  font-family: 'Zeyada';
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
- margin-right: 53rem; 
-  /* margin-left: -rem;  */
-  text-shadow: 2px 2px 5px black;
+
+#time {
+    border: #007bff solid 2px;
+    margin-left: 1rem;
+    padding: 3px;
+    border-radius: 70%;
+    font-size: 10px;
+}
+
+
+
+.pb-3,
+.py-3 {
+    padding-top: 5rem;
+
+    padding-bottom: 0rem !important;
 }
