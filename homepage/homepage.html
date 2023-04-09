@@ -17,22 +17,25 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom ">
-        <div class="container" id="nav">
-            <a class="navbar-brand" href="#" id="name-h">Recruiter</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse float-right inav " id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link " id="lin" href="#">Home</a>
-                    <a class="nav-item nav-link " id="lin" href="#position">Position</a>
-                    <a class="nav-item nav-link" id="lin" href="#foot">Contact</a>
-                </div>
-            </div>
+    <nav class="nav">
+        <div>
+          <a href="#"><h2 class="logo">Recrui<span>ter</span></h2></a>
         </div>
-    </nav>
+
+        <div class="container">
+          <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+              <li><a href="../signIn-signup/signUp.html">Register</a></li>
+              
+            </ul>
+          </div>
+          <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+      </nav>
     <!-- Hero -->
     <header>
         <!-- Intro settings -->
@@ -53,18 +56,13 @@
             <img class="d-block mx-auto mb-4" src="image\draw2.webp" alt="" width="300" height="200">
             <h1 class="display-5 fw-bold text-body-emphasis">let’s help you get employed</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4" id="position">We are 'Anonymous' company, our vision to get the better websites,
-                    with suitable cost,
-                    to join us, you must approve that you are a Good devloper which you can handle all the problem you
-                    faced, and
-                    you have ability to learn any new technology we could need</p>
+                <p class="lead mb-4" id="position">Register with us for daily updated quizes to help you always refresh 
+                    your knowledge and try to prepare you for future job interviews . </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3 " id="boton"
-                        fdprocessedid="7iw4kt">Sign In
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3 " 
+                        fdprocessedid="7iw4kt"><a class="signInBtn" href="../signIn-signup/signIn.html">Sign In</a>
                     </button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4 " id="boton"
-                        fdprocessedid="822xsh">Sign
-                        UP</button>
+                   
                 </div>
             </div>
         </div>
@@ -81,7 +79,7 @@
                 <h2 class="fw-normal">HTML</h2>
                 <p>The position is Front-end Devloper, so you have to pass this 'Html' quiz to be one of the candidates
                     for this job<span id="time">30m</span></p>
-                <p><a class="btn btn-secondary" id="but" href="#">Start Quize »</a></p>
+                <p><a class="btn btn-secondary" id="but" href="#">Start Quiz »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img class=" rounded-circle" src="image\css.webp" alt="Generic placeholder image" width="140"
@@ -109,7 +107,7 @@
     </div>
 
     <!-- Hero -->
-
+<!-- 
     <footer class="py-3 my-4" id="foot">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
@@ -127,14 +125,14 @@
     </svg></a></li>
     </ul>
     </footer>
-    </div>
+    </div> -->
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <script src="./homepage.js"></script>
 </body>
 
 </html>
