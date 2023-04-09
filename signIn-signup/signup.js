@@ -1,6 +1,13 @@
 
 let infoArr=[];
 let checkArr=[];
+
+let userInput=document.getElementById('fname')
+let userpass=document.getElementById('pword')
+let userEmail=document.getElementById('email')
+let userConfirm=document.getElementById('confirm')
+let validation=document.getElementsByClassName("validRule")
+
 let UserValidate=function(string){
     let pattern=/\s/g;
     return !pattern.test(string)
@@ -61,7 +68,20 @@ const user=
         }
         
         }else{
-          alert("Please enter valid details")
+          if(!UserValidate(user.user)||
+                 !emailValidate(user.email)||
+          !PassWordValidate(user.passWord)){
+            userInput.style.border=' solid red'
+            userEmail.style.border=' solid red'
+           userpass.style.border=' solid red'
+            userConfirm.style.border=' solid red'            
+
+            for (let i = 0; i < validation.length; i++) {
+         
+              validation[i].style.display=' block'
+              
+            }
+          }
         }
         console.log(checkArr)
         let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
@@ -71,9 +91,6 @@ if(findDuplicates(checkArr).length!==0){
   
   infoArr.pop();
    
-}else{
-  alert("Congratulations !now you have an account")
-  // add start exam function
 }
    
 }

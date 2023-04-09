@@ -379,3 +379,9 @@ li a {
   /* margin-left: -rem;  */
   text-shadow: 2px 2px 5px black;
 }
+h6{
+  display:none;
+  color:red;
+  font-size:.8rem;
+  background-color: rgba(249, 249, 249, 0.0);
+}
