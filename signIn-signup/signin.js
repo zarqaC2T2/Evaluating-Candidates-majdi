@@ -16,20 +16,20 @@ function handelSubmitSign(e){
         console.log(element)
         if(element===userSign.email){
            alert(`welcome  ${infoArr[i].user}`)
-           location.replace("../welcomepage/welcome.html")
-          checkArr.push(userSign.email,userSign.passWord)
-        }
-       
-        }
-        console.log(checkArr)
-        
-        if(!checkArr.includes(userSign.email)){
-            alert(`seems like you dont have account ,sign up now`)
-        }
-        if(checkArr[1]!=userSign.passWord){
-            alert("wrong password")
+           checkArr.push(userSign.email,userSign.passWord)
         }
         
+    }
+    console.log(checkArr)
+    
+    if(!checkArr.includes(userSign.email)){
+        alert(`seems like you dont have account ,sign up now`)
+    }
+    if(checkArr[1]!=userSign.passWord){
+        alert("wrong password")
+    }
+    
+    location.replace("../welcomepage/welcome.html")
            
         }
 
