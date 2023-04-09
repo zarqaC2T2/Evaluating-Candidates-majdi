@@ -72,7 +72,8 @@ if(findDuplicates(checkArr).length!==0){
   infoArr.pop();
    
 }else{
-  alert("Congratulations !now you have an account")
+  alert("Congratulations !now you have an account");
+  location.replace("../welcomepage/welcome.html");
   // add start exam function
 }
    

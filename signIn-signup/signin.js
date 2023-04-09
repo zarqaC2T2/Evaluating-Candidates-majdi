@@ -17,6 +17,7 @@ function handelSubmitSign(e){
         if(element===userSign.email){
            alert(`welcome  ${infoArr[i].user}`)
            checkArr.push(userSign.email,userSign.passWord)
+           location.replace("../welcomepage/welcome.html")
         }
         
     }
@@ -29,7 +30,6 @@ function handelSubmitSign(e){
         alert("wrong password")
     }
     
-    location.replace("../welcomepage/welcome.html")
            
         }
 
