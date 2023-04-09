@@ -16,6 +16,7 @@ function handelSubmitSign(e){
         console.log(element)
         if(element===userSign.email){
            alert(`welcome  ${infoArr[i].user}`)
+           location.replace("../welcomepage/welcome.html")
           checkArr.push(userSign.email,userSign.passWord)
         }
        
