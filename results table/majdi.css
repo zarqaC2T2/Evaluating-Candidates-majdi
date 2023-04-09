@@ -1,7 +1,15 @@
+
+body{
+   background-color: #222222
+}
+ #quizimg{
+display: flex;
+ justify-content: center;
+}
 *{
     padding: 0;
     margin: 0;
-    color: rgb(0, 12, 245);
+    color: rgb(0, 0, 0);
  }
  
  .buttonShow{
@@ -42,7 +50,7 @@
       }
     tbody tr.option{
     margin-bottom: 1rem ;
-    border: 1px solid rgb(19, 143, 205) ;
+    border: 1px solid #007bff;
     display: flex;   
     }
  
@@ -55,7 +63,7 @@
 
  .option:hover{
  
-    box-shadow: 1px 1px 0px 0px blue;
+    box-shadow: 1px 1px 0px 0px #007bff;
    transform: scale(1.02);
  }
  
@@ -81,6 +89,8 @@
   width:  2rem;
   height: 2rem;
   margin: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  color: black;
   border-radius: 5rem;
  }
  
@@ -103,8 +113,8 @@
     }
 
     #table_div{
-      background: #e5e9e2;
-      margin: 5rem auto;
+      background: white;
+      margin: 1rem auto;
       padding: 2rem 0 ;
       max-width: 40rem ;
   
@@ -121,6 +131,10 @@
       padding-bottom: 0.5rem;
       border-bottom: 1px solid black;
     }
+    #trhead th p {
+    font-size: large;
+
+    }
 
 
     .nextShowButton{
@@ -129,4 +143,9 @@
       align-items: center;
       justify-content: end;
       margin-top: 0.5rem;
+    }
+    .showbutton{
+      background-color: #007bff;
+      border:20px ;
+      border-radius: 5px;
     }
